@@ -2,57 +2,15 @@ import { CallToActionButton } from "components/CallToActionButton";
 import { Column } from "components/Column";
 import { Columns } from "components/Columns";
 import { Cover } from "components/Cover";
-import { FormspreeForm } from "components/FormspreeForm";
-import { Gallery } from "components/Gallery";
 import { Heading } from "components/Heading";
 import { Paragraph } from "components/Paragraph";
 import { PostTitle } from "components/PostTitle";
-import { PropertyFeatures } from "components/PropertyFeatures";
-import { PropertySearch } from "components/PropertySearch";
-import { TickItem } from "components/TickItem";
 import Image from "next/image";
 import { theme } from "theme";
 
 export const BlockRenderer = ({ blocks }) => {
   return blocks.map((block) => {
     switch (block.name) {
-      case "acf/propertyfeatures": {
-        return (
-          <PropertyFeatures
-            key={block.id}
-            price={block.attributes.price}
-            bathrooms={block.attributes.bathrooms}
-            bedrooms={block.attributes.bedrooms}
-            hasParking={block.attributes.has_parking}
-            petFriendly={block.attributes.pet_friendly}
-          />
-        );
-      }
-      case "acf/tickitem": {
-        return (
-          <TickItem key={block.id}>
-            <BlockRenderer blocks={block.innerBlocks} />
-          </TickItem>
-        );
-      }
-      case "core/gallery": {
-        return (
-          <Gallery
-            key={block.id}
-            columns={block.attributes.columns || 3}
-            cropImages={block.attributes.imageCrop}
-            items={block.innerBlocks}
-          />
-        );
-      }
-      case "acf/formspreeform": {
-        return (
-          <FormspreeForm
-            key={block.id}
-            formId={block.attributes.data.form_id}
-          />
-        );
-      }
       case "acf/ctabutton": {
         return (
           <CallToActionButton
@@ -94,9 +52,6 @@ export const BlockRenderer = ({ blocks }) => {
             textAlign={block.attributes.textAlign}
           />
         );
-      }
-      case "acf/propertysearch": {
-        return <PropertySearch key={block.id} />;
       }
       case "core/cover": {
         console.log("COVER BLOCK: ", block);
