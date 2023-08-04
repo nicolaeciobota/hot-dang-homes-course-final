@@ -5,6 +5,7 @@ import { Cover } from "components/Cover";
 import { Heading } from "components/Heading";
 import { Paragraph } from "components/Paragraph";
 import { PostTitle } from "components/PostTitle";
+import { PropertySearch } from "components/PropertySearch";
 import Image from "next/image";
 import { theme } from "theme";
 
@@ -34,6 +35,7 @@ export const BlockRenderer = ({ blocks }) => {
           />
         );
       }
+      case "core/post-title":
       case "core/heading": {
         return (
           <Heading
@@ -44,13 +46,9 @@ export const BlockRenderer = ({ blocks }) => {
           />
         );
       }
-      case "core/post-title": {
+      case "acf/propertysearch": {
         return (
-          <PostTitle
-            key={block.id}
-            level={block.attributes.level}
-            textAlign={block.attributes.textAlign}
-          />
+        <PropertySearch key={block.id} />
         );
       }
       case "core/cover": {
