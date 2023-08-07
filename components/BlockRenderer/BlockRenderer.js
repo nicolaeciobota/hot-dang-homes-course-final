@@ -61,15 +61,7 @@ export const BlockRenderer = ({ blocks }) => {
           />
         );
       }
-      case "core/post-title":{
-         return (
-        <PostTitle
-          key={block.id}
-          level={block.attributes.level}
-          textAlign={block.attributes.textAlign}
-        />
-      );
-    }
+      case "core/post-title": 
       case "core/heading": {
         return (
           <Heading
