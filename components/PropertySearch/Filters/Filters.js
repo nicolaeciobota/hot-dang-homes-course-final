@@ -31,30 +31,30 @@ setMaxPrice(maxPriceInitial || "");
 
  }, [])
  return (
-  <div className=" container max-w-5xl mx-auto my-5 flex gap-5 border-solid border-slate-400 border-2 p-5 rounded-md shadow-lg">
-   <div className="flex flex-col md:flex-row">
-<div className="mx-1">
+  <div className="container lg:max-w-screen-lg my-2 mx-auto flex justify-center items-center p-1 md:p-0">
+    <div className="border border-gray-300 p-6 grid grid-cols-1  bg-white shadow-lg rounded-lg">
+<div className="grid grid-cols-1 md:grid-cols-1 gap-2">
+<div className="grid sm:grid-cols-2 grid-cols-1 gap-1  p-2 rounded">
+<div className="flex  rounded items-center p-2">
+ <span className="pr-1">Min price</span>
+ <Input type="number" value={minPrice} onChange={(e) => setMinPrice(e.target.value)}/>
+</div>
+<div className="flex rounded items-center p-2">
+ <span className="pr-1">Max price</span>
+ <Input type="number" value={maxPrice} onChange={(e) => setMaxPrice(e.target.value)} />
+</div></div></div> <div className="flex flex-col md:flex-row justify-center my-auto items-center">
+<div className="">
  <label className="cursor-pointer">
   <input type="checkbox" checked={hasParking} onChange={()=> setHasParking((value) => !value)} />
   <span className="pl-2">Has parking</span>
  </label>
 </div>
-<div className="mx-1">
+<div className="grid grid-cols-1 md:grid-cols-1 gap-4"></div>
+<div className="pt-6 md:pt-0 md:pl-6">
 <label className="cursor-pointer">
   <input type="checkbox" checked={petFriendly} onChange={()=> setPetFriendly((value) => !value)} />
   <span className="pl-2">Pet friendly</span>
  </label>
-</div></div>
-<div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-<div className="flex-1">
- <span>Min price</span>
- <Input type="number" value={minPrice} onChange={(e) => setMinPrice(e.target.value)}/>
-</div>
-<div className="flex-1">
- <span>Max price</span>
- <Input type="number" value={maxPrice} onChange={(e) => setMaxPrice(e.target.value)} />
-</div></div><div className="flex justify-center">
-<div className="btn" onClick={handleSearch}>Search</div></div>
-   </div>
+</div><div className="flex p-4"><div className="btn text-center" onClick={handleSearch}>Search</div></div></div></div></div>
  )
 };

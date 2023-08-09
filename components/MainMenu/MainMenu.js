@@ -16,7 +16,7 @@ export const MainMenu = ({
   }
       return (
     <div className="bg-slate-800 text-white px-5 h-[64px] sticky top-0 z-20 flex">
-      <div className="py-4 pl-5 flex text-pink-600 ">
+      <div onClick={handleNav} className="py-4 pl-5 flex text-pink-600 ">
         <Link href="/" ><FaHouseUser size={30} className="cursor-pointer" /></Link>
         <FaHeart size={30} />
       </div>
@@ -57,7 +57,7 @@ export const MainMenu = ({
         <Link href="/" ><FaHouseUser size={30} className="cursor-pointer" /></Link>
         <FaHeart size={30} />
       </div>
-       <div onClick={handleNav} className="flex flex-1 justify-end mr-3 my-auto z-10">
+       <div onClick={handleNav} className="flex flex-1 justify-end mr-3 my-auto z-10 cursor-pointer">
         {nav? <AiOutlineClose size={20} /> : <AiOutlineMenu size={20} />}
        </div></div>
        {/* mobile menu */}
