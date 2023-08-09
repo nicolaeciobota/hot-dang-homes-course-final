@@ -31,20 +31,21 @@ setMaxPrice(maxPriceInitial || "");
 
  }, [])
  return (
-  <div className="max-w-5xl mx-auto my-5 flex gap-5 border-solid border-slate-400 border-2 p-5 rounded-md">
-   <div className="flex-1">
-<div>
+  <div className=" container max-w-5xl mx-auto my-5 flex gap-5 border-solid border-slate-400 border-2 p-5 rounded-md shadow-lg">
+   <div className="flex flex-col md:flex-row">
+<div className="mx-1">
  <label className="cursor-pointer">
   <input type="checkbox" checked={hasParking} onChange={()=> setHasParking((value) => !value)} />
   <span className="pl-2">Has parking</span>
  </label>
 </div>
-<div>
+<div className="mx-1">
 <label className="cursor-pointer">
   <input type="checkbox" checked={petFriendly} onChange={()=> setPetFriendly((value) => !value)} />
   <span className="pl-2">Pet friendly</span>
  </label>
 </div></div>
+<div className="grid grid-cols-1 md:grid-cols-2 gap-4">
 <div className="flex-1">
  <span>Min price</span>
  <Input type="number" value={minPrice} onChange={(e) => setMinPrice(e.target.value)}/>
@@ -52,8 +53,8 @@ setMaxPrice(maxPriceInitial || "");
 <div className="flex-1">
  <span>Max price</span>
  <Input type="number" value={maxPrice} onChange={(e) => setMaxPrice(e.target.value)} />
-</div>
-<div className="btn" onClick={handleSearch}>Search</div>
+</div></div><div className="flex justify-center">
+<div className="btn" onClick={handleSearch}>Search</div></div>
    </div>
  )
 };

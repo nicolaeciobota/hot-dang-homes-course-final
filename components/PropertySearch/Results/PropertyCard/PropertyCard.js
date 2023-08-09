@@ -12,8 +12,9 @@ export const PropertyCard = ({
  price, 
  hasParking, 
  petFriendly}) => {
- return (<Link href={destination}>
-  <a className="border-2 broder-slate-300 p-5 block bg-slate-100 hover:bg-slate-200">
+ return (
+     <div className="flex flex-1 mx-auto content-center"><Link href={destination}>
+  <a className="border-2 broder-slate-300 p-5 block bg-slate-100 hover:bg-slate-200 content-center">
  <div className="flex w-full">
  {image  && ( <Image src={image} height="200px" width="300px" objectFit="cover" alt="" /> )}
  </div>
@@ -42,5 +43,5 @@ export const PropertyCard = ({
      </div>
    )}
   </a>
-  </Link>)
+  </Link></div>)
 };
