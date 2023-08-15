@@ -9,6 +9,9 @@ export const PropertySearch = () => {
  const [totalResults, setTotalResults] = useState(0);
  const pageSize = 3;
  const router = useRouter()
+ if (router.isFallback) {
+  return <div>Loading...</div>
+}
  const search = async () => {
   const {page, minPrice, maxPrice, hasParking, petFriendly} = queryString.parse(window.location.search);
   const filters = {};
@@ -58,10 +61,7 @@ console.log("FILTERS: ", petFriendly, hasParking, minPrice, maxPrice);
 await router.push(`${router.query.slug.join("/")}?page=1&petFriendly=${!!petFriendly}&hasParking=${!!hasParking}&minPrice=${minPrice}&maxPrice=${maxPrice}`, null, {shallow: true,});
 search();
  };
- if (router.isFallback) {
-  return <div>Loading...</div>
-}
-return (
+ return (
 <div>
  <Filters onSearch={handleSearch}/>
  <Results properties={properties} />
