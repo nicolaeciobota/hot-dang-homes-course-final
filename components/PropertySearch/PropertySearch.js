@@ -58,6 +58,9 @@ console.log("FILTERS: ", petFriendly, hasParking, minPrice, maxPrice);
 await router.push(`${router.query.slug.join("/")}?page=1&petFriendly=${!!petFriendly}&hasParking=${!!hasParking}&minPrice=${minPrice}&maxPrice=${maxPrice}`, null, {shallow: true,});
 search();
  };
+ if (router.isFallback) {
+  return <div>Loading...</div>
+}
 return (
 <div>
  <Filters onSearch={handleSearch}/>

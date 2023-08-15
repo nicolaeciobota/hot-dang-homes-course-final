@@ -33,6 +33,6 @@ export const getStaticPaths = async () => {
           slug: page.uri.substring(1, page.uri.length - 1).split("/"),
         },
       })),
-    fallback: "blocking",
+    fallback: true,
   };
 };
