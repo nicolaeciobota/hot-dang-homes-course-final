@@ -4,6 +4,7 @@ const nextConfig = {
   images: {
     domains: [process.env.WP_IMAGES_URL],
   },
+  suspense: true,
 };
 
 module.exports = nextConfig;
