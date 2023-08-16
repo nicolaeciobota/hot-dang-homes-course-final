@@ -4,6 +4,7 @@ import { Pagination } from "./Pagination";
 import { useRouter } from "next/router";
 import queryString from "query-string";
 import { Filters } from "./Filters";
+import Loading from "./Loading";
 export const PropertySearch = () => {
  const [properties, setProperties] = useState([]);
  const [totalResults, setTotalResults] = useState(0);
@@ -61,7 +62,7 @@ search();
  return (
 <div>
  <Filters onSearch={handleSearch}/>
- <Suspense fallback={<div>Loading properties...</div>}>
+ <Suspense fallback={<Loading />}>
  <Results properties={properties} /></Suspense>
  <Pagination 
  onPageClick={handlePageClick}
