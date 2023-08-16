@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import { Results } from "./Results";
 import { Pagination } from "./Pagination";
 import { useRouter } from "next/router";
@@ -61,7 +61,8 @@ search();
  return (
 <div>
  <Filters onSearch={handleSearch}/>
- <Results properties={properties} />
+ <Suspense fallback={<div>Loading properties...</div>}>
+ <Results properties={properties} /></Suspense>
  <Pagination 
  onPageClick={handlePageClick}
  totalPages={Math.ceil(totalResults / pageSize)} />
