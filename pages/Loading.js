@@ -62,4 +62,4 @@ const Loading = () => {
   </section>
  )
 }
-
+export default Loading;
