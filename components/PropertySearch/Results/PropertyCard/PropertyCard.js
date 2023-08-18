@@ -16,7 +16,7 @@ export const PropertyCard = ({
      <div className="flex flex-1 mx-auto content-center"><Link legacyBehavior href={destination}>
   <a className="border-2 broder-slate-300 p-5 block bg-slate-100 hover:bg-slate-200 content-center">
  <div className="flex w-full">
- {image  && ( <Image src={image} height={200} width={300} objectFit="cover" alt={title} /> )}
+ {image  && ( <Image src={image} height={200} width={300} className="object-cover h-[200px]" alt="Property" /> )}
  </div>
  <div className="mt-3 text-lg font-bold">{title}</div>
  <div className="text-lg">£{numeral(price).format("0,0")}</div>

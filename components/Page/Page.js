@@ -2,6 +2,8 @@ import { BlockRenderer } from "components/BlockRenderer";
 import { MainMenu } from "components/MainMenu";
 import {PageWrapper} from "context/page";
 import Head from "next/head";
+import { Suspense } from "react";
+import { Loading } from "./Loading";
 export const Page = (props) => {
   console.log("PAGE PROPS: ", props);
   return (
@@ -15,7 +17,7 @@ export const Page = (props) => {
       callToActionDestination={props.callToActionDestination}
       callToActionLabel={props.callToActionLabel}
     />
-    <BlockRenderer blocks={props.blocks} />
+    <Suspense fallback={<Loading />}><BlockRenderer blocks={props.blocks} /></Suspense>
     </PageWrapper>);
     
 };
