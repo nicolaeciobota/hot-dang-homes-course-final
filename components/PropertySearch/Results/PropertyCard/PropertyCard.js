@@ -13,10 +13,10 @@ export const PropertyCard = ({
  hasParking, 
  petFriendly}) => {
  return (
-     <div className="flex flex-1 mx-auto content-center"><Link href={destination}>
+     <div className="flex flex-1 mx-auto content-center"><Link legacyBehavior href={destination}>
   <a className="border-2 broder-slate-300 p-5 block bg-slate-100 hover:bg-slate-200 content-center">
  <div className="flex w-full">
- {image  && ( <Image src={image} height="200px" width="300px" objectFit="cover" alt="" /> )}
+ {image  && ( <Image src={image} height={200} width={300} objectFit="cover" alt={title} /> )}
  </div>
  <div className="mt-3 text-lg font-bold">{title}</div>
  <div className="text-lg">£{numeral(price).format("0,0")}</div>

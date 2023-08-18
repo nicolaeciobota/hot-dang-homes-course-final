@@ -61,8 +61,7 @@ search();
  };
  return (
 <div>
- <Filters onSearch={handleSearch}/>
- <Suspense fallback={<Loading />}>
+ <Filters onSearch={handleSearch}/><Suspense fallback={<Loading />}>
  <Results properties={properties} /></Suspense>
  <Pagination 
  onPageClick={handlePageClick}
