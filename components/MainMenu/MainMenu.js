@@ -1,3 +1,4 @@
+"use client"
 import { ButtonLink } from "components/ButtonLink";
 import Link from "next/link";
 import { useState } from "react";
@@ -18,7 +19,7 @@ export const MainMenu = ({
     <div className="bg-slate-800 text-white px-5 h-[64px] sticky top-0 z-20 flex">
       <div onClick={handleNav} className="py-4 pl-5 flex text-pink-600 ">
         <Link href="/" ><FaHouseUser size={30} className="cursor-pointer" /></Link>
-        <FaHeart size={30} />
+        <Link href="/" ><FaHeart size={30} /></Link>
       </div>
       <div className="md:flex flex-1 justify-end hidden">
         {(items || []).map((item) => (
@@ -27,17 +28,15 @@ export const MainMenu = ({
             className="hover:bg-slate-700 cursor-pointer relative group"
           >
             <div>
-              <Link legacyBehavior href={item.destination}>
-                <a className="p-5 block">{item.label}</a>
+              <Link className="p-5 block" href={item.destination}>
+                {item.label}
               </Link>
             </div>
             {!!item.subMenuItems?.length && (
               <div className="group-hover:block hidden bg-slate-800 text-right absolute right-0 top-full -mt-3">
                 {item.subMenuItems.map((subMenuItem) => (
-                  <Link legacyBehavior key={subMenuItem.id} href={subMenuItem.destination}>
-                    <a className="block whitespace-nowrap p-5 hover:bg-slate-700">
+                  <Link  className="block whitespace-nowrap p-5 hover:bg-slate-700" key={subMenuItem.id} href={subMenuItem.destination}>
                       {subMenuItem.label}
-                    </a>
                   </Link>
                 ))}
               </div>
@@ -55,7 +54,7 @@ export const MainMenu = ({
       <div className="sm:hidden text-white h-[64px] sticky top-0 z-20 flex  w-full">
       <div className="py-4 pl-5 -ml-20 flex  text-pink-600 text-left">
         <Link href="/" ><FaHouseUser size={30} className="cursor-pointer" /></Link>
-        <FaHeart size={30} />
+        <Link href="/" ><FaHeart size={30} /></Link>
       </div>
        <div onClick={handleNav} className="flex flex-1 justify-end mr-3 my-auto z-10 cursor-pointer">
         {nav? <AiOutlineClose size={20} /> : <AiOutlineMenu size={20} />}
@@ -67,17 +66,16 @@ export const MainMenu = ({
             key={item.id} className="hover:bg-slate-700 cursor-pointer  group"
           >
             <div onClick={handleNav} className="p-4 ">
-              <Link legacyBehavior href={item.destination}>
-                <a className="text-center">{item.label}</a>
+              <Link className="text-center" href={item.destination}>
+                {item.label}
               </Link>
             </div>
             {!!item.subMenuItems?.length && (
               <div onClick={handleNav} className="group-hover:block hidden bg-slate-800 text-center mx-auto -mt-1 w-full">
                 {item.subMenuItems.map((subMenuItem) => (
-                  <Link legacyBehavior key={subMenuItem.id} href={subMenuItem.destination}>
-                    <a className="block whitespace-nowrap p-5 hover:bg-slate-700">
-                      {subMenuItem.label}
-                    </a>
+                  <Link className="block whitespace-nowrap p-5 hover:bg-slate-700" key={subMenuItem.id} href={subMenuItem.destination}>
+                   {subMenuItem.label}
+
                   </Link>
                 ))}
               </div>
