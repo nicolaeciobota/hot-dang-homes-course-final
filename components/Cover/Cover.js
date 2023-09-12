@@ -7,9 +7,9 @@ return (
         <Image
           alt="Cover"
           src={background}
-          layout="fill"
-          objectFit="cover"
-          className="mix-blend-soft-light"
+          fill
+          priority
+          className="mix-blend-soft-light object-cover"
         />
       <div className="max-w-5xl z-10">{children}</div>
     </div>
