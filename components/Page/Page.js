@@ -3,7 +3,8 @@ import { MainMenu } from "components/MainMenu";
 import {PageWrapper} from "context/page";
 import Head from "next/head";
 import { Suspense } from "react";
-import { Loading } from "./Loading";
+import Loading from "./Loading";
+
 export const Page = (props) => {
   console.log("PAGE PROPS: ", props);
   return (

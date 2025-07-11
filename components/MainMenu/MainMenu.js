@@ -16,9 +16,11 @@ export const MainMenu = ({
   }
       return (
     <div className="bg-slate-800 text-white px-5 h-[64px] sticky top-0 z-20 flex">
-      <div onClick={handleNav} className="py-4 pl-5 flex text-pink-600 ">
-        <Link href="/" ><FaHouseUser size={30} className="cursor-pointer" /></Link>
-        <FaHeart size={30} />
+      <div className="py-4 pl-5 flex text-pink-600">
+        <Link href="/" className="flex items-center">
+          <FaHouseUser size={30} className="cursor-pointer" />
+          <FaHeart size={30} />
+        </Link>
       </div>
       <div className="md:flex flex-1 justify-end hidden">
         {(items || []).map((item) => (
@@ -54,8 +56,10 @@ export const MainMenu = ({
       {/* mobile menu icon */}
       <div className="sm:hidden text-white h-[64px] sticky top-0 z-20 flex  w-full">
       <div className="py-4 pl-5 -ml-20 flex  text-pink-600 text-left">
-        <Link href="/" ><FaHouseUser size={30} className="cursor-pointer" /></Link>
-        <FaHeart size={30} />
+        <Link href="/" className="flex items-center">
+          <FaHouseUser size={30} className="cursor-pointer" />
+          <FaHeart size={30} />
+        </Link>
       </div>
        <div onClick={handleNav} className="flex flex-1 justify-end mr-3 my-auto z-10 cursor-pointer">
         {nav? <AiOutlineClose size={20} /> : <AiOutlineMenu size={20} />}

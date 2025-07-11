@@ -1,12 +1,29 @@
-export const Pagination = ({totalPages, onPageClick}) => {
-return (
- <div className="max-w-5xl mx-auto mb-10 flex justify-center gap-2">
-  {Array.from({length: totalPages}).map((_, i) => (
-  <div key={i} className="btn" onClick={() => {
-   onPageClick(i+1);
-  }}>
-  {i +1} 
-  </div>))}
- </div>
- );
+import { motion } from "framer-motion";
+
+export const Pagination = ({ onPageClick, totalPages }) => {
+  const pages = [];
+  for (let i = 1; i <= totalPages; i++) {
+    pages.push(i);
+  }
+
+  return (
+    <motion.div 
+      className="flex justify-center items-center space-x-2 mb-20"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.6, delay: 0.2 }}
+    >
+      {pages.map((page) => (
+        <motion.button
+          key={page}
+          onClick={() => onPageClick(page)}
+          className="px-4 py-2 border border-gray-300 rounded hover:bg-gray-100 transition-colors"
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+        >
+          {page}
+        </motion.button>
+      ))}
+    </motion.div>
+  );
 };
