@@ -71,17 +71,26 @@ export const getPageStaticProps = async (context) => {
       uri,
     },
   });
-  const blocks = cleanAndTransformBlocks(data.nodeByUri.blocks);
+
+  // Check if nodeByUri exists
+  if (!data.nodeByUri) {
+    return {
+      notFound: true,
+    };
+  }
+
+  const blocks = cleanAndTransformBlocks(data.nodeByUri.blocks || []);
+  
   return {
     props: {
-      seo: data.nodeByUri.seo,
+      seo: data.nodeByUri.seo || {},
       mainMenuItems: mapMainMenuItems(
-        data.acfOptionsMainMenu.mainMenu.menuItems
+        data.acfOptionsMainMenu?.mainMenu?.menuItems || []
       ),
       callToActionLabel:
-        data.acfOptionsMainMenu.mainMenu.callToActionButton.label,
+        data.acfOptionsMainMenu?.mainMenu?.callToActionButton?.label || "",
       callToActionDestination:
-        data.acfOptionsMainMenu.mainMenu.callToActionButton.destination.uri,
+        data.acfOptionsMainMenu?.mainMenu?.callToActionButton?.destination?.uri || "/",
       blocks,
     },
   };

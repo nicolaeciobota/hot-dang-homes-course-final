@@ -2,7 +2,7 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: [process.env.WP_IMAGES_URL],
+    domains: ['hotdanghomes.web-design-studio.co.uk'],
   },
   swcMinify: true,
   experimental: {
