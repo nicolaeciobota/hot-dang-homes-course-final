@@ -46,7 +46,7 @@ export const PropertyCard = ({
       transition={{ duration: 0.6, delay: delay }}
     >
       <Link legacyBehavior href={destination}>
-        <a className="border-2 broder-slate-300 p-5 block bg-slate-100 hover:bg-slate-200 content-center hover:shadow-xl hover:scale-102 transition-transform">
+        <a className="border-2 broder-slate-300 p-5 block bg-slate-100 hover:bg-slate-200 content-center hover:shadow-xl hover:scale-103 transition-all duration-300 ease-out">
           <div className="flex w-full">
             {fixedImage && ( 
               <Image 
