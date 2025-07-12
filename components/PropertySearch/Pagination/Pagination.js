@@ -8,7 +8,7 @@ export const Pagination = ({ onPageClick, totalPages }) => {
 
   return (
     <motion.div 
-      className="flex justify-center items-center space-x-2 mb-20"
+      className="flex justify-center items-center space-x-1 md:space-x-2 mb-20 px-4"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.6, delay: 0.2 }}
@@ -17,7 +17,7 @@ export const Pagination = ({ onPageClick, totalPages }) => {
         <motion.button
           key={page}
           onClick={() => onPageClick(page)}
-          className="px-4 py-2 border border-gray-300 rounded hover:bg-gray-100 transition-colors"
+          className="px-3 md:px-4 py-2 md:py-2 border border-gray-300 rounded hover:bg-gray-100 transition-colors text-sm md:text-base min-w-[40px] md:min-w-[44px]"
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >

@@ -21,12 +21,12 @@ export const Results = ({properties, loading = false}) => {
 
   return (
     <motion.div 
-      className="max-w-5xl mx-auto grid lg:grid-cols-3 gap-6 mb-20"
+      className="max-w-5xl mx-auto grid lg:grid-cols-3 gap-5 mb-10"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.6, delay: 0.1 }}
     >
-      {properties.map(property => (
+      {properties.map((property, index) => (
         <PropertyCard 
           key={property.databaseId} 
           title={property.title} 
@@ -35,8 +35,9 @@ export const Results = ({properties, loading = false}) => {
           bathrooms={property.propertyFeatures.numBathrooms} 
           price={property.propertyFeatures.price} 
           hasParking={property.propertyFeatures.hasParking} 
-          petFriendly={property.propertyFeatures.petFriendly} 
+          petFriendly={property.propertyFeatures.petFriendly}
           image={property.featuredImage?.node?.sourceUrl}
+          delay={index * 0.5} // Staggered delay: 0s, 0.5s, 1s, etc.
         />
       ))}
     </motion.div>

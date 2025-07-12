@@ -34,47 +34,50 @@ export const Filters = ({onSearch, loading = false}) => {
   
   return (
     <motion.div 
-      className="container lg:max-w-screen-lg my-2 mx-auto flex justify-center items-center p-1 md:p-0"
+      className="w-full my-2 mx-auto flex justify-center items-center px-4 md:px-8 lg:px-0 lg:max-w-screen-lg lg:mx-auto"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.6, delay: 0.05 }}
     >
-      <div className="border border-gray-300 p-6 grid grid-cols-1 bg-white shadow-lg rounded-lg">
-        <div className="grid grid-cols-1 md:grid-cols-1 gap-2">
-          <div className="grid sm:grid-cols-2 grid-cols-1 gap-1 p-2 rounded">
-            <div className="flex rounded items-center p-2">
-              <span className="pr-1">Min price</span>
-              <Input type="number" value={minPrice} onChange={(e) => setMinPrice(e.target.value)}/>
+      <div className="border border-gray-300 p-4 md:p-6 bg-white shadow-lg rounded-lg w-full">
+        {/* Price Range Section */}
+        <div className="mb-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="flex flex-col">
+              <label className="text-sm font-medium mb-2">Min price</label>
+              <Input type="number" value={minPrice} onChange={(e) => setMinPrice(e.target.value)} className="h-8"/>
             </div>
-            <div className="flex rounded items-center p-2">
-              <span className="pr-1">Max price</span>
-              <Input type="number" value={maxPrice} onChange={(e) => setMaxPrice(e.target.value)} />
+            <div className="flex flex-col">
+              <label className="text-sm font-medium mb-2">Max price</label>
+              <Input type="number" value={maxPrice} onChange={(e) => setMaxPrice(e.target.value)} className="h-8"/>
             </div>
           </div>
         </div>
-        <div className="flex flex-col md:flex-row justify-center my-auto items-center">
-          <div className="">
-            <label className="cursor-pointer">
+        
+        {/* Checkboxes and Button Section */}
+        <div className="space-y-4">
+          {/* Checkboxes - Centered */}
+          <div className="flex flex-col sm:flex-row justify-center gap-4">
+            <label className="cursor-pointer flex items-center">
               <input type="checkbox" checked={hasParking} onChange={()=> setHasParking((value) => !value)} />
-              <span className="pl-2">Has parking</span>
+              <span className="pl-2 text-sm">Has parking</span>
             </label>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-1 gap-4"></div>
-          <div className="pt-6 md:pt-0 md:pl-6">
-            <label className="cursor-pointer">
+            <label className="cursor-pointer flex items-center">
               <input type="checkbox" checked={petFriendly} onChange={()=> setPetFriendly((value) => !value)} />
-              <span className="pl-2">Pet friendly</span>
+              <span className="pl-2 text-sm">Pet friendly</span>
             </label>
           </div>
-          <div className="flex p-4">
+          
+          {/* Search Button - Centered and Smaller */}
+          <div className="flex justify-center">
             <button 
-              className="btn text-center flex items-center justify-center min-w-[120px] h-[40px]" 
+              className="btn text-center flex items-center justify-center w-32 h-8 text-sm" 
               onClick={handleSearch}
               disabled={loading}
             >
               {loading ? (
                 <>
-                  <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white mr-2"></div>
+                  <div className="animate-spin rounded-full h-3 w-3 border-b-2 border-white mr-1"></div>
                   <span>Searching...</span>
                 </>
               ) : (

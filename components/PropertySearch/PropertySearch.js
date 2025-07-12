@@ -74,7 +74,7 @@ export const PropertySearch = () => {
   };
   
   return (
-    <div className="pb-20 mb-20">
+    <div className="w-full pb-20 mb-20">
       <Filters onSearch={handleSearch} loading={loading}/>
       <Suspense fallback={<Loading />}>
         <Results properties={properties} loading={loading} />

@@ -25,7 +25,7 @@ export const Cover = ({ children, background }) => {
   const fixedBackground = fixImageUrl(background);
 
   return (
-    <div ref={ref} className="h-screen text-white bg-slate-800 relative min-h-[400px] flex justify-center items-center">
+    <div ref={ref} className="h-screen text-white bg-slate-800 relative min-h-[400px] flex justify-center items-center w-full">
       {/* Background Image - Fades in last and slowly */}
       <motion.div
         initial={{ opacity: 0 }}
@@ -46,7 +46,7 @@ export const Cover = ({ children, background }) => {
       
       {/* Content Container */}
       <motion.div 
-        className="max-w-5xl relative z-10"
+        className="relative z-10 w-full max-w-5xl mx-auto"
         initial={{ opacity: 0, y: 50 }}
         animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
         transition={{ 
@@ -55,7 +55,9 @@ export const Cover = ({ children, background }) => {
           ease: "easeOut" 
         }}
       >
-        {children}
+        <div className="text-center">
+          {children}
+        </div>
       </motion.div>
     </div>
   );

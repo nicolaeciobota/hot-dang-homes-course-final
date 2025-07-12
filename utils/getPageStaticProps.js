@@ -29,6 +29,19 @@ export const getPageStaticProps = async (context) => {
           id
           title
           blocks
+          uri
+          featuredImage {
+            node {
+              sourceUrl
+            }
+          }
+          propertyFeatures {
+            price
+            numberOfBedrooms
+            hasParking
+            petFriendly
+            numBathrooms
+          }
           seo {
             title
             metaDesc
@@ -81,6 +94,9 @@ export const getPageStaticProps = async (context) => {
 
   const blocks = cleanAndTransformBlocks(data.nodeByUri.blocks || []);
   
+  // Check if this is a property
+  const isProperty = data.nodeByUri.propertyFeatures !== undefined;
+  
   return {
     props: {
       seo: data.nodeByUri.seo || {},
@@ -92,6 +108,16 @@ export const getPageStaticProps = async (context) => {
       callToActionDestination:
         data.acfOptionsMainMenu?.mainMenu?.callToActionButton?.destination?.uri || "/",
       blocks,
+      // Add property-specific data
+      ...(isProperty && {
+        propertyData: {
+          title: data.nodeByUri.title,
+          uri: data.nodeByUri.uri,
+          featuredImage: data.nodeByUri.featuredImage,
+          propertyFeatures: data.nodeByUri.propertyFeatures,
+        },
+        uri: data.nodeByUri.uri,
+      }),
     },
   };
 };
