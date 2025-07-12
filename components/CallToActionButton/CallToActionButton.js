@@ -21,7 +21,7 @@ export const CallToActionButton = ({
         animate={{ opacity: 1, y: 0 }}
         transition={{ 
           duration: 0.6, 
-          delay: 0.5, // Half second delay
+          delay: 1.2, // Longer delay to appear after text animation
           ease: "easeOut" 
         }}
       >

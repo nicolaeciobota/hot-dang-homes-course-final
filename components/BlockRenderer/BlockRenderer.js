@@ -11,6 +11,7 @@ import { PropertyFeatures } from "components/PropertyFeatures";
 import { TickItem } from "components/TickItem";
 import { Gallery } from "components/Gallery";
 import { FadeInOnScroll } from "components/animations/FadeInOnScroll";
+import { AnimatedText } from "components/animations/AnimatedText";
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import Image from "next/image";
@@ -27,7 +28,7 @@ const AnimatedTextBlock = ({ children, delay = 0 }) => {
       initial={{ opacity: 0, y: 20 }}
       animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
       transition={{
-        duration: 0.4,
+        duration: 0.2,
         delay: delay,
         ease: "easeOut"
       }}
@@ -37,13 +38,13 @@ const AnimatedTextBlock = ({ children, delay = 0 }) => {
   );
 };
 
-export const BlockRenderer = ({ blocks }) => {
+export const BlockRenderer = ({ blocks, context = "default" }) => {
   return blocks.map((block, index) => {
     const BlockComponent = () => {
       switch (block.name) {
         case "acf/tickitem":{
           return (<TickItem key={block.id}>
-           <BlockRenderer blocks={block.innerBlocks} />
+           <BlockRenderer blocks={block.innerBlocks} context={context} />
           </TickItem>);
         }
         case "core/gallery": {
@@ -70,7 +71,7 @@ export const BlockRenderer = ({ blocks }) => {
               buttonLabel={block.attributes.data.label}
               destination={block.attributes.data.destination || "/"}
               align={block.attributes.data.align}
-              heroAnimation={false} // This will be overridden by parent components if needed
+              heroAnimation={context === "cover"} // Enable hero animation for Cover context
             />
           );
         }
@@ -107,7 +108,7 @@ export const BlockRenderer = ({ blocks }) => {
           console.log("COVER BLOCK: ", block);
           return (
             <Cover key={block.id} background={block.attributes.url}>
-              <BlockRenderer blocks={block.innerBlocks} />
+              <BlockRenderer blocks={block.innerBlocks} context="cover" />
             </Cover>
           );
         }
@@ -126,7 +127,7 @@ export const BlockRenderer = ({ blocks }) => {
                 block.attributes.style?.color?.background
               }
             >
-              <BlockRenderer blocks={block.innerBlocks} />
+              <BlockRenderer blocks={block.innerBlocks} context={context} />
             </Columns>
           );
         }
@@ -144,7 +145,7 @@ export const BlockRenderer = ({ blocks }) => {
                 block.attributes.style?.color?.background
               }
             >
-              <BlockRenderer blocks={block.innerBlocks} />
+              <BlockRenderer blocks={block.innerBlocks} context={context} />
             </Column>
           );
         }
@@ -168,7 +169,7 @@ export const BlockRenderer = ({ blocks }) => {
         }
         case "core/group":
         case "core/block": {
-          return <BlockRenderer key={block.id} blocks={block.innerBlocks} />;
+          return <BlockRenderer key={block.id} blocks={block.innerBlocks} context={context} />;
         }
         case "core/image": {
           return (
@@ -206,6 +207,9 @@ export const BlockRenderer = ({ blocks }) => {
       "core/list"
     ].includes(block.name);
 
+    // CTA buttons have their own hero timing
+    const isCtaButton = block.name === "acf/ctabutton";
+
     // Debug logging
     if (isTextBlock) {
       console.log("Text block found:", block.name, block.id);
@@ -217,11 +221,24 @@ export const BlockRenderer = ({ blocks }) => {
           <BlockComponent />
         </FadeInOnScroll>
       );
+    } else if (isTextBlock && context === "cover") {
+      // Use line-by-line animation for text blocks in Cover context
+      return (
+        <AnimatedText key={block.id} delay={index * 0.1}>
+          <BlockComponent />
+        </AnimatedText>
+      );
     } else if (isTextBlock) {
       return (
-        <AnimatedTextBlock key={block.id} delay={index * 0.05}>
+        <AnimatedTextBlock key={block.id} delay={index * 0.02}>
           <BlockComponent />
         </AnimatedTextBlock>
+      );
+    } else if (isCtaButton) {
+      return (
+        <div key={block.id}>
+          <BlockComponent />
+        </div>
       );
     } else {
       return (
