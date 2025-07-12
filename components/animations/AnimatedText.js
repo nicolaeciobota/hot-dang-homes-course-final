@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
 
-export const AnimatedText = ({ children, className = "", delay = 0 }) => {
+export const AnimatedText = ({ children, className = "", delay = 0, context = "default" }) => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-50px" });
 
@@ -11,8 +11,13 @@ export const AnimatedText = ({ children, className = "", delay = 0 }) => {
     ? children.split('\n').filter(line => line.trim())
     : [children];
 
+  // Use white text for cover context, otherwise use theme-aware colors
+  const textColorClass = context === "cover" 
+    ? "text-white" 
+    : "text-gray-900 dark:text-white";
+
   return (
-    <div ref={ref} className={className}>
+    <div ref={ref} className={`${className} ${textColorClass}`}>
       {lines.map((line, index) => (
         <motion.div
           key={index}

@@ -14,7 +14,7 @@ const Loading = () => {
         animate={{ rotate: 360 }}
         transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
       ></motion.div>
-      <span className="ml-3 text-lg text-slate-600">Loading...</span>
+      <span className="ml-3 text-lg text-slate-600 dark:text-gray-300">Loading...</span>
     </motion.div>
   );
 };

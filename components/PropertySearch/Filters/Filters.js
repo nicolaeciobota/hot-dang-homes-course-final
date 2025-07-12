@@ -39,17 +39,17 @@ export const Filters = ({onSearch, loading = false}) => {
       animate={{ opacity: 1 }}
       transition={{ duration: 0.6, delay: 0.05 }}
     >
-      <div className="border border-gray-300 p-4 md:p-6 bg-white shadow-lg rounded-lg w-full">
+      <div className="border border-gray-300 dark:border-gray-600 p-4 md:p-6 bg-white dark:bg-gray-800 shadow-lg rounded-lg w-full">
         {/* Price Range Section */}
         <div className="mb-6">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div className="flex flex-col">
-              <label className="text-sm font-medium mb-2">Min price</label>
-              <Input type="number" value={minPrice} onChange={(e) => setMinPrice(e.target.value)} className="h-8"/>
+              <label className="text-sm font-medium mb-2 text-gray-900 dark:text-white">Min price</label>
+              <Input type="number" value={minPrice} onChange={(e) => setMinPrice(e.target.value)}/>
             </div>
             <div className="flex flex-col">
-              <label className="text-sm font-medium mb-2">Max price</label>
-              <Input type="number" value={maxPrice} onChange={(e) => setMaxPrice(e.target.value)} className="h-8"/>
+              <label className="text-sm font-medium mb-2 text-gray-900 dark:text-white">Max price</label>
+              <Input type="number" value={maxPrice} onChange={(e) => setMaxPrice(e.target.value)} />
             </div>
           </div>
         </div>
@@ -58,11 +58,11 @@ export const Filters = ({onSearch, loading = false}) => {
         <div className="space-y-4">
           {/* Checkboxes - Centered */}
           <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <label className="cursor-pointer flex items-center">
+            <label className="cursor-pointer flex items-center text-gray-900 dark:text-white">
               <input type="checkbox" checked={hasParking} onChange={()=> setHasParking((value) => !value)} />
               <span className="pl-2 text-sm">Has parking</span>
             </label>
-            <label className="cursor-pointer flex items-center">
+            <label className="cursor-pointer flex items-center text-gray-900 dark:text-white">
               <input type="checkbox" checked={petFriendly} onChange={()=> setPetFriendly((value) => !value)} />
               <span className="pl-2 text-sm">Pet friendly</span>
             </label>

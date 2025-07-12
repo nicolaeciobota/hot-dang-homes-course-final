@@ -75,15 +75,17 @@ export const PropertyPage = (props) => {
         )}
       </Head>
       
-      <MainMenu
-        items={props.mainMenuItems}
-        callToActionDestination={props.callToActionDestination}
-        callToActionLabel={props.callToActionLabel}
-      />
-      
-      <Suspense fallback={<Loading />}>
-        <BlockRenderer blocks={props.blocks} />
-      </Suspense>
+      <div className="min-h-screen bg-white dark:bg-slate-900 transition-colors duration-300">
+        <MainMenu
+          items={props.mainMenuItems}
+          callToActionDestination={props.callToActionDestination}
+          callToActionLabel={props.callToActionLabel}
+        />
+        
+        <Suspense fallback={<Loading />}>
+          <BlockRenderer blocks={props.blocks} />
+        </Suspense>
+      </div>
     </PageWrapper>
   );
 }; 

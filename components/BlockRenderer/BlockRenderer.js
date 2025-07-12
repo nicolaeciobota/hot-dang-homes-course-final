@@ -85,10 +85,11 @@ export const BlockRenderer = ({ blocks, context = "default" }) => {
                 theme[block.attributes.textColor] ||
                 block.attributes.style?.color?.text
               }
+              disableTextColor={context === "colored-container"}
             />
           );
         }
-        case "core/post-title": 
+        case "core/post-title":
         case "core/heading": {
           return (
             <Heading
@@ -96,6 +97,8 @@ export const BlockRenderer = ({ blocks, context = "default" }) => {
               level={block.attributes.level}
               content={block.attributes.content}
               textAlign={block.attributes.textAlign}
+              context={context}
+              disableTextColor={context === "colored-container"}
             />
           );
         }
@@ -114,24 +117,31 @@ export const BlockRenderer = ({ blocks, context = "default" }) => {
         }
         case "core/columns": {
           console.log("COLUMNS: ", block.attributes);
+          // Check if this columns block has a background color
+          const hasBackgroundColor = block.attributes.backgroundColor || block.attributes.textColor;
+          const columnsContext = hasBackgroundColor ? "colored-container" : context;
+          
           return (
             <Columns
               key={block.id}
               isStackedOnMobile={block.attributes.isStackedOnMobile}
               textColor={
-                theme[block.attributes.textColor] ||
-                block.attributes.style?.color?.text
+                block.attributes.textColor ? theme[block.attributes.textColor] : null
               }
               backgroundColor={
-                theme[block.attributes.backgroundColor] ||
-                block.attributes.style?.color?.background
+                block.attributes.backgroundColor ? theme[block.attributes.backgroundColor] : null
               }
+              textColorKey={block.attributes.textColor}
+              backgroundColorKey={block.attributes.backgroundColor}
             >
-              <BlockRenderer blocks={block.innerBlocks} context={context} />
+              <BlockRenderer blocks={block.innerBlocks} context={columnsContext} />
             </Columns>
           );
         }
         case "core/column": {
+          // Check if dark mode is active
+          const isDarkMode = typeof document !== 'undefined' && document.documentElement.classList.contains('dark');
+          
           return (
             <Column
               key={block.id}
@@ -144,6 +154,8 @@ export const BlockRenderer = ({ blocks, context = "default" }) => {
                 theme[block.attributes.backgroundColor] ||
                 block.attributes.style?.color?.background
               }
+              textColorKey={block.attributes.textColor}
+              backgroundColorKey={block.attributes.backgroundColor}
             >
               <BlockRenderer blocks={block.innerBlocks} context={context} />
             </Column>
@@ -153,7 +165,7 @@ export const BlockRenderer = ({ blocks, context = "default" }) => {
           return (
             <div 
               key={block.id}
-              className="wp-block-list"
+              className="wp-block-list text-gray-900 dark:text-gray-100"
               dangerouslySetInnerHTML={{ __html: block.dynamicContent }}
             />
           );
@@ -224,7 +236,7 @@ export const BlockRenderer = ({ blocks, context = "default" }) => {
     } else if (isTextBlock && context === "cover") {
       // Use line-by-line animation for text blocks in Cover context
       return (
-        <AnimatedText key={block.id} delay={index * 0.1}>
+        <AnimatedText key={block.id} delay={index * 0.1} context="cover">
           <BlockComponent />
         </AnimatedText>
       );

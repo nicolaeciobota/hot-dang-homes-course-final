@@ -4,7 +4,7 @@ import numeral from "numeral";
 
 export const PropertyFeatures = ({ price, bedrooms, bathrooms, hasParking, petFriendly }) => {
  return (
-  <div className="max-w-lg mx-auto my-10 bg-white bg-opacity-80 text-slate-900 p-5 text-center">
+  <div className="max-w-lg mx-auto my-10 bg-white dark:bg-gray-800 bg-opacity-80 dark:bg-opacity-80 text-slate-900 dark:text-white p-5 text-center">
    <div className="grid grid-cols-2 mb-4 gap-y-5">
     <div>
      <FontAwesomeIcon icon={faBed}/> {bedrooms} bedrooms
@@ -27,7 +27,7 @@ export const PropertyFeatures = ({ price, bedrooms, bathrooms, hasParking, petFr
      }
     </div>
    </div>
-   <h3 className="text-5xl font-bold">£{numeral(price).format("0,0")}</h3>
+   <h3 className="text-5xl font-bold text-slate-900 dark:text-white">£{numeral(price).format("0,0")}</h3>
   </div>
  )
 };

@@ -13,7 +13,7 @@ export const Results = ({properties, loading = false}) => {
       >
         <div className="flex items-center">
           <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-pink-600 mr-3"></div>
-          <span className="text-lg text-slate-600">Searching properties...</span>
+          <span className="text-lg text-slate-600 dark:text-gray-300">Searching properties...</span>
         </div>
       </motion.div>
     );

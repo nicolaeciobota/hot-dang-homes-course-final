@@ -46,7 +46,7 @@ export const PropertyCard = ({
       transition={{ duration: 0.6, delay: delay }}
     >
       <Link legacyBehavior href={destination}>
-        <a className="border-2 broder-slate-300 p-5 block bg-slate-100 hover:bg-slate-200 content-center hover:shadow-xl hover:scale-103 transition-all duration-300 ease-out">
+        <a className="border-2 border-slate-300 dark:border-gray-600 p-5 block bg-slate-100 dark:bg-gray-800 hover:bg-slate-200 dark:hover:bg-gray-700 content-center hover:shadow-xl dark:hover:shadow-gray-900/50 hover:scale-103 transition-all duration-300 ease-out">
           <div className="flex w-full">
             {fixedImage && ( 
               <Image 
@@ -58,9 +58,9 @@ export const PropertyCard = ({
               />
             )}
           </div>
-          <div className="mt-3 text-lg font-bold">{title}</div>
-          <div className="text-lg">£{numeral(price).format("0,0")}</div>
-          <div className="flex justify-between text-sm mt-3">
+          <div className="mt-3 text-lg font-bold text-gray-900 dark:text-white">{title}</div>
+          <div className="text-lg text-gray-900 dark:text-white">£{numeral(price).format("0,0")}</div>
+          <div className="flex justify-between text-sm mt-3 text-gray-700 dark:text-gray-300">
             <div>
               <FontAwesomeIcon icon={faBathtub} />
               <span className="pl-2">{bathrooms} bathrooms</span>
@@ -71,7 +71,7 @@ export const PropertyCard = ({
             </div>
           </div>
           {(!!hasParking || !!petFriendly) && (
-            <div className="flex justify-between text-sm mt-3">
+            <div className="flex justify-between text-sm mt-3 text-gray-700 dark:text-gray-300">
               <div>
                 {!!hasParking && (
                   <>

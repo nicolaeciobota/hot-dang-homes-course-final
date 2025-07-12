@@ -55,7 +55,7 @@ export const Cover = ({ children, background }) => {
           ease: "easeOut" 
         }}
       >
-        <div className="text-center">
+        <div className="text-center text-white">
           {children}
         </div>
       </motion.div>

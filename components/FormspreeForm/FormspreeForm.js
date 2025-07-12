@@ -9,14 +9,14 @@ export const FormspreeForm = ({ formId }) => {
   if (state.succeeded) {
     return (
       <motion.div 
-        className="relative isolate bg-white px-6 py-24 sm:py-32 lg:px-8"
+        className="relative isolate bg-white dark:bg-gray-900 px-6 py-24 sm:py-32 lg:px-8"
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
       >
         <svg
           aria-hidden="true"
-          className="absolute inset-0 -z-10 size-full stroke-gray-200 [mask-image:radial-gradient(100%_100%_at_top_right,white,transparent)]"
+          className="absolute inset-0 -z-10 size-full stroke-gray-200 dark:stroke-gray-700 [mask-image:radial-gradient(100%_100%_at_top_right,white,transparent)]"
         >
           <defs>
             <pattern
@@ -30,7 +30,7 @@ export const FormspreeForm = ({ formId }) => {
               <path d="M100 200V.5M.5 .5H200" fill="none" />
             </pattern>
           </defs>
-          <svg x="50%" y={-64} className="overflow-visible fill-gray-50">
+          <svg x="50%" y={-64} className="overflow-visible fill-gray-50 dark:fill-gray-800">
             <path
               d="M-100.5 0h201v201h-201Z M699.5 0h201v201h-201Z M499.5 400h201v201h-201Z M299.5 800h201v201h-201Z"
               strokeWidth={0}
@@ -39,10 +39,10 @@ export const FormspreeForm = ({ formId }) => {
           <rect fill="url(#83fd4e5a-9d52-42fc-97b6-718e5d7ee527)" width="100%" height="100%" strokeWidth={0} />
         </svg>
         <div className="mx-auto max-w-xl lg:max-w-4xl text-center">
-          <h2 className="text-pretty text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl">
+          <h2 className="text-pretty text-4xl font-semibold tracking-tight text-gray-900 dark:text-white sm:text-5xl">
             Thank you!
           </h2>
-          <p className="mt-2 text-lg/8 text-gray-600">
+          <p className="mt-2 text-lg/8 text-gray-600 dark:text-gray-300">
             Your message has been sent. We&apos;ll be in touch soon.
           </p>
         </div>
@@ -52,7 +52,7 @@ export const FormspreeForm = ({ formId }) => {
 
   return (
     <motion.div 
-      className="relative isolate bg-white"
+      className="relative isolate bg-white dark:bg-gray-900"
       initial={{ opacity: 0, y: 30 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6 }}
@@ -60,7 +60,7 @@ export const FormspreeForm = ({ formId }) => {
       <div className="absolute inset-0 -z-10 overflow-hidden">
         <svg
           aria-hidden="true"
-          className="absolute left-[calc(50%-4rem)] top-10 -z-10 h-[64rem] w-[128rem] stroke-gray-200 [mask-image:radial-gradient(64rem_64rem_at_center,white,transparent)]"
+          className="absolute left-[calc(50%-4rem)] top-10 -z-10 h-[64rem] w-[128rem] stroke-gray-200 dark:stroke-gray-700 [mask-image:radial-gradient(64rem_64rem_at_center,white,transparent)]"
         >
           <defs>
             <pattern
@@ -74,7 +74,7 @@ export const FormspreeForm = ({ formId }) => {
               <path d="M100 200V.5M.5 .5H200" fill="none" />
             </pattern>
           </defs>
-          <svg x="50%" y={-1} className="overflow-visible fill-gray-50">
+          <svg x="50%" y={-1} className="overflow-visible fill-gray-50 dark:fill-gray-800">
             <path
               d="M-100.5 0h201v201h-201Z M699.5 0h201v201h-201Z M499.5 400h201v201h-201Z M299.5 800h201v201h-201Z"
               strokeWidth={0}
@@ -91,7 +91,7 @@ export const FormspreeForm = ({ formId }) => {
           transition={{ duration: 0.6, delay: 0.1 }}
         >
           <motion.h2 
-            className="text-pretty text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl"
+            className="text-pretty text-4xl font-semibold tracking-tight text-gray-900 dark:text-white sm:text-5xl"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.15 }}
@@ -99,7 +99,7 @@ export const FormspreeForm = ({ formId }) => {
             Contact Hot Dang Homes
           </motion.h2>
           <motion.p 
-            className="mt-2 text-lg/8 text-gray-600"
+            className="mt-2 text-lg/8 text-gray-600 dark:text-gray-300"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
@@ -120,7 +120,7 @@ export const FormspreeForm = ({ formId }) => {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: 0.3 }}
                 >
-                  <label htmlFor="firstName" className="block text-sm/6 font-semibold text-gray-900">
+                  <label htmlFor="firstName" className="block text-sm/6 font-semibold text-gray-900 dark:text-white">
                     First name
       </label>
                   <div className="mt-2.5">
@@ -129,7 +129,7 @@ export const FormspreeForm = ({ formId }) => {
                       name="First Name"
                       type="text"
                       autoComplete="given-name"
-                      className="block w-full rounded-md bg-white px-3.5 py-2 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-pink-600"
+                      className="block w-full rounded-md bg-white dark:bg-gray-800 px-3.5 py-2 text-base text-gray-900 dark:text-white outline outline-1 -outline-offset-1 outline-gray-300 dark:outline-gray-600 placeholder:text-gray-400 dark:placeholder:text-gray-500 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-pink-600"
                       placeholder="Jane"
                       required
                     />
@@ -141,7 +141,7 @@ export const FormspreeForm = ({ formId }) => {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: 0.35 }}
                 >
-                  <label htmlFor="lastName" className="block text-sm/6 font-semibold text-gray-900">
+                  <label htmlFor="lastName" className="block text-sm/6 font-semibold text-gray-900 dark:text-white">
                     Last name
                   </label>
                   <div className="mt-2.5">
@@ -150,7 +150,7 @@ export const FormspreeForm = ({ formId }) => {
                       name="Last Name"
                       type="text"
                       autoComplete="family-name"
-                      className="block w-full rounded-md bg-white px-3.5 py-2 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-pink-600"
+                      className="block w-full rounded-md bg-white dark:bg-gray-800 px-3.5 py-2 text-base text-gray-900 dark:text-white outline outline-1 -outline-offset-1 outline-gray-300 dark:outline-gray-600 placeholder:text-gray-400 dark:placeholder:text-gray-500 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-pink-600"
                       placeholder="Doe"
                     />
                     <ValidationError prefix="Last Name" field="lastName" errors={state.errors} />
@@ -161,7 +161,7 @@ export const FormspreeForm = ({ formId }) => {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: 0.4 }}
                 >
-                  <label htmlFor="email" className="block text-sm/6 font-semibold text-gray-900">
+                  <label htmlFor="email" className="block text-sm/6 font-semibold text-gray-900 dark:text-white">
                     Email
       </label>
                   <div className="mt-2.5">
@@ -170,7 +170,7 @@ export const FormspreeForm = ({ formId }) => {
                       name="email"
                       type="email"
                       autoComplete="email"
-                      className="block w-full rounded-md bg-white px-3.5 py-2 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-pink-600"
+                      className="block w-full rounded-md bg-white dark:bg-gray-800 px-3.5 py-2 text-base text-gray-900 dark:text-white outline outline-1 -outline-offset-1 outline-gray-300 dark:outline-gray-600 placeholder:text-gray-400 dark:placeholder:text-gray-500 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-pink-600"
                       placeholder="you@email.com"
                       required
                     />
@@ -182,7 +182,7 @@ export const FormspreeForm = ({ formId }) => {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: 0.45 }}
                 >
-                  <label htmlFor="phone" className="block text-sm/6 font-semibold text-gray-900">
+                  <label htmlFor="phone" className="block text-sm/6 font-semibold text-gray-900 dark:text-white">
                     Phone
                   </label>
                   <div className="mt-2.5">
@@ -191,7 +191,7 @@ export const FormspreeForm = ({ formId }) => {
                       name="phone"
                       type="tel"
                       autoComplete="tel"
-                      className="block w-full rounded-md bg-white px-3.5 py-2 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-pink-600"
+                      className="block w-full rounded-md bg-white dark:bg-gray-800 px-3.5 py-2 text-base text-gray-900 dark:text-white outline outline-1 -outline-offset-1 outline-gray-300 dark:outline-gray-600 placeholder:text-gray-400 dark:placeholder:text-gray-500 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-pink-600"
                       placeholder="+1 (555) 000-0000"
                     />
                     <ValidationError prefix="Phone" field="phone" errors={state.errors} />
@@ -203,7 +203,7 @@ export const FormspreeForm = ({ formId }) => {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: 0.5 }}
                 >
-                  <label htmlFor="message" className="block text-sm/6 font-semibold text-gray-900">
+                  <label htmlFor="message" className="block text-sm/6 font-semibold text-gray-900 dark:text-white">
         Message
       </label>
                   <div className="mt-2.5">
@@ -211,7 +211,7 @@ export const FormspreeForm = ({ formId }) => {
                       id="message"
                       name="message"
                       rows={4}
-                      className="block w-full rounded-md bg-white px-3.5 py-2 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-pink-600"
+                      className="block w-full rounded-md bg-white dark:bg-gray-800 px-3.5 py-2 text-base text-gray-900 dark:text-white outline outline-1 -outline-offset-1 outline-gray-300 dark:outline-gray-600 placeholder:text-gray-400 dark:placeholder:text-gray-500 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-pink-600"
                       placeholder="How can we help you?"
                       required
                     />
@@ -234,7 +234,7 @@ export const FormspreeForm = ({ formId }) => {
       </button>
               </motion.div>
               <motion.p 
-                className="mt-4 text-sm/6 text-gray-500"
+                className="mt-4 text-sm/6 text-gray-500 dark:text-gray-400"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.6 }}
@@ -265,9 +265,56 @@ export const FormspreeForm = ({ formId }) => {
               >
                 Hot Dang Homes
               </motion.div>
-              <figure className="mt-10">
+              <motion.p 
+                className="mt-6 text-base leading-7 text-gray-600 dark:text-gray-300"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.75 }}
+              >
+                We buy any home quickly for cash. Guaranteed sale. In your timescale. No fees, no stress, no problem.
+              </motion.p>
+              <motion.dl 
+                className="mt-10 text-base leading-7 text-gray-600 dark:text-gray-300"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.8 }}
+              >
+                <div className="mt-6 flex gap-x-3">
+                  <dt className="flex-none">
+                    <span className="sr-only">Address</span>
+                    <FontAwesomeIcon icon={faHouseUser} className="h-6 w-6 text-pink-600" />
+                  </dt>
+                  <dd>
+                    Park Lane, London<br />
+                    United Kingdom
+                  </dd>
+                </div>
+                <div className="mt-6 flex gap-x-3">
+                  <dt className="flex-none">
+                    <span className="sr-only">Telephone</span>
+                    <FontAwesomeIcon icon={faHouseUser} className="h-6 w-6 text-pink-600" />
+                  </dt>
+                  <dd>
+                    <a className="hover:text-gray-900 dark:hover:text-white" href="tel:+1 (555) 234-5678">
+                      +1 (555) 234-5678
+                    </a>
+                  </dd>
+                </div>
+                <div className="mt-6 flex gap-x-3">
+                  <dt className="flex-none">
+                    <span className="sr-only">Email</span>
+                    <FontAwesomeIcon icon={faHouseUser} className="h-6 w-6 text-pink-600" />
+                  </dt>
+                  <dd>
+                    <a className="hover:text-gray-900 dark:hover:text-white" href="mailto:hello@example.com">
+                      hello@example.com
+                    </a>
+                  </dd>
+                </div>
+              </motion.dl>
+              <motion.figure className="mt-10">
                 <motion.blockquote 
-                  className="text-lg/8 font-semibold text-gray-900"
+                  className="text-lg/8 font-semibold text-gray-900 dark:text-white"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: 0.75 }}
@@ -282,15 +329,15 @@ export const FormspreeForm = ({ formId }) => {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: 0.8 }}
                 >
-                  <div className="size-12 flex-none rounded-full bg-gray-50 flex items-center justify-center">
+                  <div className="size-12 flex-none rounded-full bg-gray-50 dark:bg-gray-800 flex items-center justify-center">
                     <FontAwesomeIcon icon={faHouseUser} className="text-2xl text-pink-600" />
                   </div>
                   <div>
-                    <div className="text-base font-semibold text-gray-900">Property Expert</div>
-                    <div className="text-sm/6 text-gray-600">Hot Dang Homes</div>
+                    <div className="text-base font-semibold text-gray-900 dark:text-white">Property Expert</div>
+                    <div className="text-sm/6 text-gray-600 dark:text-gray-300">Hot Dang Homes</div>
                   </div>
                 </motion.figcaption>
-              </figure>
+              </motion.figure>
             </motion.div>
     </div>
         </motion.div>
